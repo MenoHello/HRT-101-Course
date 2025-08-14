@@ -71,13 +71,20 @@
   li {
     margin-bottom: 0.5em; /* space between items */
   }
-  ul li {
-  color: #ffa798; /* accent pink/orange */
+ ul li {
+  color: #444444; /* Color for the text */
   list-style-type: disc;
 }
+ul li::marker {
+  color: #ffa798; /* Color for the bullet point */
+}
+
 ol li {
-  color: #ffa798;
+  color: #444444; /* Color for the text */
   list-style-type: decimal;
+}
+ol li::marker {
+  color: #ffa798; /* Color for the numbers */
 }
 </style>
 </head>
