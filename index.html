@@ -55,6 +55,30 @@
     margin-left: 20px;
     margin-bottom: 1em;
   }
+   /* Ensure unordered lists show bullets and ordered lists numbers */
+  ul {
+    list-style-type: disc; /* shows bullets */
+    padding-left: 20px; /* indent bullets */
+    margin-bottom: 1em;
+  }
+
+  ol {
+    list-style-type: decimal; /* shows numbers */
+    padding-left: 20px; /* indent numbers */
+    margin-bottom: 1em;
+  }
+
+  li {
+    margin-bottom: 0.5em; /* space between items */
+  }
+  ul li {
+  color: #ffa798; /* accent pink/orange */
+  list-style-type: disc;
+}
+ol li {
+  color: #ffa798;
+  list-style-type: decimal;
+}
 </style>
 </head>
 <body>
@@ -63,7 +87,7 @@
 
 <script>
   // Replace this with your published Google Doc URL
-  const docURL = "https://script.google.com/macros/s/AKfycbydaT7I5nE71l9-LOXwAKQK_LzhWSTDeXTcqy1gGQPga0g6srduD4nqPXAO4whUXJm9/exec";
+  const docURL = "https://script.google.com/macros/s/AKfycbyWgLuoWaf_hvxoEnAagswLPYvZNpMSz-FKYu0Ax9_xJHsEm8Kb-aZseaJjojjQNke9/exec";
 
   fetch(docURL)
     .then(response => response.text())
