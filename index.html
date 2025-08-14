@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menopause & HRT Explained: Your Beginner’s Guide to Hormone Therapy</title>
+<meta name="description" content="A straightforward guide to HRT during menopause. Understand your options, weigh the pros and cons, and get the facts you need to make confident health choices.">
+
+<!-- MenoHello Fonts & Colors -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffe9e5;
+    color: #333;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 1.6;
+  }
+
+  #dynamic-content {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  #dynamic-content h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #ffa798;
+  }
+
+  #dynamic-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.4em;
+    color: #ff7a5a;
+  }
+
+  #dynamic-content h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+    color: #ff5c3c;
+  }
+
+  #dynamic-content p {
+    margin-bottom: 1em;
+  }
+
+  #dynamic-content ul, #dynamic-content ol {
+    margin-left: 20px;
+    margin-bottom: 1em;
+  }
+</style>
+</head>
+<body>
+
+<div id="dynamic-content">Loading content...</div>
+
+<script>
+  // Replace this with your published Google Doc URL
+  const docURL = "<iframe src="https://docs.google.com/document/d/e/2PACX-1vRJWe-CYFp8sKsgQLbcY0dRfL-dNvALvYHaDWBXlEV0YmoR3tFIspGrrCU_nVpv20FQoEeKP88G8BYZ/pub?embedded=true"></iframe>";
+
+  fetch(docURL)
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+
+      // Google Docs often wraps content inside <body>
+      const content = doc.body.innerHTML;
+
+      document.getElementById("dynamic-content").innerHTML = content;
+    })
+    .catch(err => {
+      console.error("Failed to load content:", err);
+      document.getElementById("dynamic-content").innerHTML = "Content could not be loaded.";
+    });
+</script>
+
+</body>
+</html>
