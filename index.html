@@ -3,44 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Menopause & HRT Explained: Your Beginner’s Guide to Hormone Therapy</title>
+<title>Menopause & HRT Explained: Your Beginner's Guide to Hormone Therapy</title>
 <meta name="description" content="A straightforward guide to HRT during menopause. Understand your options, weigh the pros and cons, and get the facts you need to make confident health choices.">
-
 <!-- MenoHello Fonts & Colors -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffe9e5;
     color: #333;
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     line-height: 1.6;
   }
-
-  #dynamic-content {
+  
+  .container {
+    display: flex;
     max-width: 1400px;
     margin: 40px auto;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  /* Table of Contents Styles */
+  #toc {
+    flex: 0 0 280px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+  }
+  
+  #toc h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ffa798;
+    font-size: 1.3em;
+    border-bottom: 2px solid #ffa798;
+    padding-bottom: 10px;
+  }
+  
+  #toc ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+  }
+  
+  #toc li {
+    margin-bottom: 10px;
+    list-style: none !important;
+    padding-left: 0 !important;
+  }
+  
+  #toc a {
+    color: #444;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+  
+  #toc a:hover {
+    background-color: #ffe9e5;
+    color: #f26c64;
+    transform: translateX(5px);
+  }
+  
+  #toc a.active {
+    background-color: #ffa798;
+    color: white;
+  }
+  
+  /* Main Content Styles */
+  #dynamic-content {
+    flex: 1;
     background: #fff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   }
-
+  
   #dynamic-content h1 {
     font-size: 2em;
     margin-bottom: 0.5em;
     color: #ffa798;
   }
-
   #dynamic-content h2 {
     font-size: 1.5em;
     margin-bottom: 0.4em;
-    color: #444 ;
+    color: #444;
+    margin-top: 2.5em;
+    padding-top: 25px;
+    border-top: 1px solid #ffe9e5;
   }
-
+  #dynamic-content h2:first-of-type {
+    margin-top: 1.5em;
+    border-top: none;
+    padding-top: 0;
+  }
   #dynamic-content h3 {
     font-size: 1.3em;
     margin-bottom: 0.3em;
@@ -52,11 +119,9 @@
     margin-bottom: 0.3em;
     color: #9b6bae;
   }
-
   #dynamic-content p {
     margin-bottom: 1em;
   }
-
   #dynamic-content ul, #dynamic-content ol {
     margin-left: 20px;
     margin-bottom: 1em;
@@ -67,13 +132,11 @@
     padding-left: 20px; /* indent bullets */
     margin-bottom: 1em;
   }
-
   ol {
     list-style-type: decimal; /* shows numbers */
     padding-left: 20px; /* indent numbers */
     margin-bottom: 1em;
   }
-
   li {
     margin-bottom: 0.5em; /* space between items */
   }
@@ -84,7 +147,6 @@
 ul li::marker {
   color: #ffa798; /* Color for the bullet point */
 }
-
 ol li {
   color: #444444; /* Color for the text */
   list-style-type: decimal;
@@ -92,33 +154,137 @@ ol li {
 ol li::marker {
   color: #ffa798; /* Color for the numbers */
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  #toc {
+    position: static;
+    order: 2;
+    flex: none;
+  }
+  
+  #dynamic-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  #toc {
+    padding: 20px;
+  }
+  
+  #dynamic-content {
+    padding: 25px 20px;
+  }
+}
 </style>
 </head>
 <body>
-
-<div id="dynamic-content">Loading content...</div>
+<div class="container">
+  <nav id="toc">
+    <h3>Table of Contents</h3>
+    <ul id="toc-list">
+      <!-- TOC will be populated here -->
+    </ul>
+  </nav>
+  
+  <div id="dynamic-content">Loading content...</div>
+</div>
 
 <script>
   // Replace this with your published Google Doc URL
-  const docURL = "https://script.google.com/macros/s/AKfycbzZneOWcdlHLPwqMZoDZ5kRewhh-rSI6z-MIZGg736QkE1SYW7LaOigI3nXm8YWxoNy/exec";
-
-
+  const docURL = "https://script.google.com/macros/s/AKfycbzOJ_8XOwnTheqITfTtwNMs6Syob1KzJRpcyZJtZAIJypy5KEIkvJsSjEAZhUmiTR3c/exec";
+  
+  function generateTOC() {
+    const h2Elements = document.querySelectorAll('#dynamic-content h2');
+    const tocList = document.getElementById('toc-list');
+    
+    // Clear existing TOC
+    tocList.innerHTML = '';
+    
+    h2Elements.forEach((h2, index) => {
+      // Create unique ID for each H2
+      const id = `section-${index + 1}`;
+      h2.id = id;
+      
+      // Create TOC list item
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = h2.textContent;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById(id).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Update active state
+        document.querySelectorAll('#toc a').forEach(link => link.classList.remove('active'));
+        a.classList.add('active');
+      });
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+  }
+  
+  // Function to update active TOC item on scroll
+  function updateActiveTOC() {
+    const h2Elements = document.querySelectorAll('#dynamic-content h2');
+    const tocLinks = document.querySelectorAll('#toc a');
+    
+    let activeIndex = 0;
+    
+    h2Elements.forEach((h2, index) => {
+      const rect = h2.getBoundingClientRect();
+      if (rect.top <= 150) {
+        activeIndex = index;
+      }
+    });
+    
+    tocLinks.forEach((link, index) => {
+      if (index === activeIndex) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+  
   fetch(docURL)
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
-
       // Google Docs often wraps content inside <body>
       const content = doc.body.innerHTML;
-
       document.getElementById("dynamic-content").innerHTML = content;
+      
+      // Generate TOC after content loads
+      setTimeout(() => {
+        generateTOC();
+        
+        // Add scroll listener for active state
+        window.addEventListener('scroll', updateActiveTOC);
+        
+        // Set initial active state
+        updateActiveTOC();
+      }, 100);
     })
     .catch(err => {
       console.error("Failed to load content:", err);
       document.getElementById("dynamic-content").innerHTML = "Content could not be loaded.";
     });
 </script>
-
 </body>
 </html>
