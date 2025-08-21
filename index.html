@@ -114,6 +114,8 @@
 </style>
 </head>
 <body>
+  <div id="HRT-101-GuideContainer">
+
 <div class="container">
   <nav id="toc">
     <h3>Table of Contents</h3>
@@ -177,5 +179,23 @@ function updateActiveTOC() {
 generateTOC();
 window.addEventListener('scroll', updateActiveTOC);
 </script>
+     </div>
+<script>
+    function sendIframeHeight() {
+        const contentContainer = document.getElementById('HRT-101-GuideContainer');
+        if (contentContainer) {
+            const height = contentContainer.scrollHeight + 50; // extra buffer to avoid scrollbar
+            window.parent.postMessage({ type: 'setIframeHeight', height: height }, 'https://www.menohello.com');
+        }
+    }
+    window.addEventListener('DOMContentLoaded', sendIframeHeight);
+    window.addEventListener('load', sendIframeHeight);
+    const containerToObserve = document.getElementById('HRT-101-GuideContainer'); 
+    if (containerToObserve) {
+        const resizeObserver = new ResizeObserver(sendIframeHeight);
+        resizeObserver.observe(containerToObserve);
+    }
+</script>
+
 </body>
 </html>
